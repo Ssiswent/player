@@ -23,4 +23,5 @@ dependencies {
     implementation 'com.shuyu:gsyVideoPlayer-java:7.0.0-beta1'
     implementation 'com.shuyu:GSYVideoPlayer-exo2:7.0.0-beta1'
 
+
 }
