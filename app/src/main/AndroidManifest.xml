@@ -5,8 +5,10 @@
     <application
         android:allowBackup="true"
         android:label="@string/app_name"
+        android:usesCleartextTraffic="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".PlayActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -15,7 +17,5 @@
             </intent-filter>
         </activity>
     </application>
-
-
 
 </manifest>
