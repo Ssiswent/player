@@ -68,7 +68,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:id="@+id/like"
-            android:src="@drawable/like"
+            android:src="@drawable/appreciate"
             android:layout_alignParentBottom="true"
             android:clickable="true"
             android:layout_toRightOf="@id/starBtn"
