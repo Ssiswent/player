@@ -30,7 +30,7 @@ public class PlayAdapter extends RecyclerView.Adapter<PlayAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.name.setText(playsources.get(position).name);
         holder.sharpness.setText(playsources.get(position).sharpness);
-        holder.icon.setImageResource(playsources.get(position).icon);
+//        holder.icon.setImageResource(playsources.get(position).icon);
         holder.itemView.setOnClickListener((v)->{
             Intent intent=new Intent(holder.itemView.getContext(),PlayActivity.class);
             intent.putExtra("name",playsources.get(position).name);
