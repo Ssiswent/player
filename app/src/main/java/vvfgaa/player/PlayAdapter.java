@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -29,6 +30,7 @@ public class PlayAdapter extends RecyclerView.Adapter<PlayAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.name.setText(playsources.get(position).name);
         holder.sharpness.setText(playsources.get(position).sharpness);
+        holder.icon.setImageResource(playsources.get(position).icon);
         holder.itemView.setOnClickListener((v)->{
             Intent intent=new Intent(holder.itemView.getContext(),PlayActivity.class);
             intent.putExtra("name",playsources.get(position).name);
@@ -46,11 +48,13 @@ public class PlayAdapter extends RecyclerView.Adapter<PlayAdapter.ViewHolder> {
 
         TextView name;
         TextView sharpness;
+        ImageView icon;
 
          ViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.name);
             sharpness = itemView.findViewById(R.id.sharpness);
+            icon = itemView.findViewById(R.id.icon);
         }
     }
 }
