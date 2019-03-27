@@ -2,13 +2,21 @@ package vvfgaa.player;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
+import android.os.Handler;
+
+import com.mxn.soul.flowingdrawer_core.ElasticDrawer;
+import com.mxn.soul.flowingdrawer_core.FlowingDrawer;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    private SwipeRefreshLayout swipe_refresh_layout;
+    private FlowingDrawer mDrawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +25,26 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerView recyclerView=findViewById(R.id.recyclerView);
         recyclerView.setAdapter(new PlayAdapter(getPlaysource()));
+
+        swipe_refresh_layout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);//找到刷新对象
+        swipe_refresh_layout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {//设置刷新监听器
+            @Override
+            public void onRefresh()
+            {
+                new Handler().postDelayed(new Runnable() {//模拟耗时操作
+                    @Override
+                    public void run() {
+                        swipe_refresh_layout.setRefreshing(false);//取消刷新
+
+                    }
+                },2000);
+            }
+        });
+
+
+        mDrawer = (FlowingDrawer) findViewById(R.id.drawerlayout);
+        mDrawer = (FlowingDrawer) findViewById(R.id.drawerlayout);
+        mDrawer.setTouchMode(ElasticDrawer.TOUCH_MODE_BEZEL);
     }
 
     private List<Playsource> getPlaysource(){
